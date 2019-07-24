@@ -24,6 +24,7 @@ class Store(models.Model):
     store_logo = models.ImageField(upload_to="store/images",verbose_name="店铺logo")
     store_phone = models.CharField(max_length=32,verbose_name="店铺电话")
     store_money = models.FloatField(verbose_name="店铺注册资金")
+
     user_id = models.IntegerField(verbose_name="店铺主人")
     type = models.ManyToManyField(to=StoreType, verbose_name="店铺类型")
 

@@ -1,0 +1,45 @@
+{% extends "store/base.html" %}
+{% block title %}
+    店铺注册
+{% endblock %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control form-control-user" name="store_name" value="邓紫棋专卖店" placeholder="请输入店铺名称">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-user" name="store_address" value="北京" placeholder="请输入店铺地址">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-user" name="store_description" value="时尚潮流品牌" placeholder="请输入店铺描述">
+        </div>
+{#        <div class="form-group">#}
+{#            <input type="checkbox" class="form-control form-control-user" name="type" placeholder="请输入店铺类型">生鲜#}
+{#            <input type="checkbox" class="form-control form-control-user" name="type" placeholder="请输入店铺类型">家电#}
+{#            <input type="checkbox" class="form-control form-control-user" name="type" placeholder="请输入店铺类型">夏装#}
+{#            <input type="checkbox" class="form-control form-control-user" name="type" placeholder="请输入店铺类型">冬装#}
+{#            <input type="checkbox" class="form-control form-control-user" name="type" placeholder="请输入店铺类型">电子产品#}
+{#        </div>#}
+
+        <div class="form-group">
+            <select name="type" class="form-control form-control-user" multiple="multiple">
+                {% for t in type_list %}
+                    <option value="{{ t.id }}">{{ t.store_type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-user" name="store_phone" value="15837937012" placeholder="请输入店铺电话">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control form-control-user" name="store_money" value="1000000000000" placeholder="请输入店铺注册资金">
+        </div>
+        <div class="form-group">
+            <input type="file" class="form-control form-control-user" name="store_logo" placeholder="请输入店铺logo">
+        </div>
+        <input type="submit" value="提交">
+    
+    </form>
+
+{% endblock %}
