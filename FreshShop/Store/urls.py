@@ -12,4 +12,5 @@ urlpatterns = [
     path("add_goods/", views.add_goods),
     re_path(r"^goods/(?P<goods_id>\d+)", views.goods),
     re_path(r"update_goods/(?P<goods_id>\d+)", views.update_goods),
+    path("logout/", views.logout),
 ]

@@ -55,8 +55,6 @@ def loginValid(fun):  #装饰器
                         response.set_cookie("has_store", store.id)
                     else:
                         response.set_cookie("has_store", "")
-
-
                     return response
         return HttpResponseRedirect("/store/login/")
     return inner
@@ -88,6 +86,16 @@ def login(request):  # 登录函数
                     else:
                         response.set_cookie("has_store","")
                     return response
+    return response
+
+def logout(request):
+    response = HttpResponseRedirect("/store/login/")
+    response.delete_cookie("has_store")
+    response.delete_cookie("username")
+    response.delete_cookie("user_id")
+    response.delete_cookie("login_form")
+    request.session.flush()
+
     return response
 
 
