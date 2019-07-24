@@ -10,4 +10,6 @@ urlpatterns = [
     path("register_store/",views.register_store),
     path("goods_list/",views.list_goods),
     path("add_goods/",views.add_goods),
+    re_path(r"goods/(?P<goods_id>\d+)",views.goods),
+    path("goods/1",views.goods),
 ]

@@ -1,0 +1,26 @@
+{% extends "store/base.html" %}
+{% block title %}
+    {{ goods_data.goods_name }}
+{% endblock %}
+{% block content %}
+    <table class="table">
+        <tr>
+            <td colspan="2" rowspan="3"><img src="/static/{{ goods_data.goods_image }}"></td>
+            <td>{{ goods_data.goods_name }}</td>
+        </tr>
+        <tr>
+            <td>价格{{ goods_data.goods_price }}</td>
+            <td>库存{{ goods_data.goods_number }}</td>
+        </tr>
+        <tr>
+            <td>出厂日期:{{ goods_data.goods_date|date:"Y-m-d" }}</td>
+            <td>保质期{{ goods_data.goods_safeDate }}</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="text-align: center">商品描述</td>
+        </tr>
+        <tr>
+            <td>{{ goods_data.goods_description }}</td>
+        </tr>
+    </table>
+{% endblock %}

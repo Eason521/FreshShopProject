@@ -195,6 +195,10 @@ def list_goods(request):
     page_range = paginator.page_range
     return render(request,"store/goods_list.html",locals())
 
+def goods(request,goods_id):
+    goods_data = models.Goods.objects.filter(id=goods_id).first()
+    return render(request,"store/goods.html",locals())
+
 
 
 
