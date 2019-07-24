@@ -7,30 +7,30 @@
         <a href="/store/add_goods/" type="button" class="btn btn-dark">添加商品</a>
         <table class="table">
             <thead>
-                <tr>
-                    <th>商品名称</th>
-                    <th>商品价格</th>
-                    <th>商品数量</th>
-                    <th>出厂日期</th>
-                    <th>保质期</th>
-                    <th>操作</th>
-                </tr>
+            <tr>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品数量</th>
+                <th>出厂日期</th>
+                <th>保质期</th>
+                <th>操作</th>
+            </tr>
             </thead>
             <tbody>
-                {% for goods in page %}
-                    <tr>
-                        <td><a href="/store/goods/{{ goods.id }}">{{ goods.goods_name }}</a></td>
-                        <td>{{ goods.goods_price }}</td>
-                        <td>{{ goods.goods_number }}</td>
-                        <td>{{ goods.goods_date }}</td>
-                        <td>{{ goods.goods_safeDate }}</td>
-                        <td>{{ goods.goods_safeDate }}</td>
-                        <td>
-                            <a class="btn btn-danger" href="#">下架</a>
-                            <a class="btn btn-primary" href="#">销毁</a>
-                        </td>
-                    </tr>
-                {% endfor %}
+            {% for goods in page %}
+                <tr>
+                    <td><a href="/store/goods/{{ goods.id }}">{{ goods.goods_name }}</a></td>
+                    <td>{{ goods.goods_price }}</td>
+                    <td>{{ goods.goods_number }}</td>
+                    <td>{{ goods.goods_date }}</td>
+                    <td>{{ goods.goods_safeDate }}</td>
+                    <td>{{ goods.goods_safeDate }}</td>
+                    <td>
+                        <a class="btn btn-danger" href="#">下架</a>
+                        <a class="btn btn-primary" href="#">销毁</a>
+                    </td>
+                </tr>
+            {% endfor %}
             </tbody>
 
         </table>

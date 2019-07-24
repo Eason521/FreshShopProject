@@ -1,0 +1,48 @@
+{% extends "store/base.html" %}
+{% block title %}
+    {{ goods_data.goods_name }}修改
+{% endblock %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data" class="">
+        {% csrf_token %}
+        <table class="table">
+            <tr>
+                <td colspan="1" rowspan="3" style="text-align: center">
+                    <img src="/static/{{ goods_data.goods_image }}" style="width: 200px;height:260px">
+                </td>
+                <td>商品名称：</td>
+                <td><input type="text" name="goods_name" value="{{ goods_data.goods_name }}"></td>
+            </tr>
+            <tr>
+                <td>价格：</td>
+                <td><input type="text" name="goods_price" value="{{ goods_data.goods_price }}"></td>
+                <td>库存：</td>
+                <td><input type="text" name="goods_number" value="{{ goods_data.goods_number }}"></td>
+            </tr>
+            <tr>
+                <td>出厂日期：</td>
+                <td><input type="text" name="goods_date" value="{{ goods_data.goods_date|date:"Y-m-d" }}"></td>
+
+                <td>保质期：</td>
+                <td><input type="text" name="goods_safeDate" value="{{ goods_data.goods_safeDate }}"></td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align: center">商品描述</td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <textarea class="form-control form-control-user" name="goods_description">
+                        {{ goods_data.goods_description }}
+                    </textarea>
+                    <script src="/static/ckeditor/ckeditor/ckeditor.js"></script>
+                    <script>
+                        CKEDITOR.replace("goods_description", {uiColor: "#9AB8F3"})
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5"><input class="btn btn-primary btn-block" type="submit" value="保存"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}
