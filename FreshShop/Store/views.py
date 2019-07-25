@@ -174,32 +174,37 @@ def add_goods(request):
 
 
 # @loginValid
-# def goods_list(request):
+# def goods_list(request):  #展示所有商品
 
 #     goods_list = models.Goods.objects.all()
 #     return render(request,"store/goods_list.html",{"goods_list":goods_list})
 
 
 @loginValid
-def list_goods(request):
+def list_goods(request):  #分页展示所有商品并只展示本人店铺的
     keywords = request.GET.get("keywords")
     page_num = request.GET.get("page_num",1)
-    if keywords:
-        goods_list = models.Goods.objects.filter(goods_name__contains=keywords)
-    else:
-        goods_list = models.Goods.objects.all()
+
+    # 查询店铺
+    store_id = request.COOKIES.get("has_store")
+    store = models.Store.objects.get(id=int(store_id))
+    if keywords:  # 判断关键词是否存在
+        goods_list = store.goods_set.filter(goods_name__contains=keywords)  # 完成了模糊查询
+
+    else:  # 如果关键词不存在，查询所有
+        goods_list = store.goods_set.all()
     paginator = Paginator(goods_list,3)
     page = paginator.page(int(page_num))
     page_range = paginator.page_range
     return render(request,"store/goods_list.html",locals())
 
 @loginValid
-def goods(request,goods_id):
+def goods(request,goods_id):  #商品详情
     goods_data = models.Goods.objects.filter(id=goods_id).first()
     return render(request,"store/goods.html",locals())
 
 @loginValid
-def update_goods(request,goods_id):
+def update_goods(request,goods_id):  #修改商品
     goods_data = models.Goods.objects.filter(id=goods_id).first()
 
     if request.method == "POST":
