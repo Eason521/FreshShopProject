@@ -6,11 +6,18 @@ urlpatterns = [
     path("register/", views.register),
     path("login/", views.login),
     path("index/", views.index),
-    path("blank/", views.blank),
     path("register_store/", views.register_store),
-    path("goods_list/", views.list_goods),
-    path("add_goods/", views.add_goods),
-    re_path(r"^goods/(?P<goods_id>\d+)", views.goods),
-    re_path(r"update_goods/(?P<goods_id>\d+)", views.update_goods),
+    re_path(r"goods_list/(?P<status>\w+)", views.list_goods),  #商品列表
+    path("add_goods/", views.add_goods),  #添加商品
+    re_path(r"^goods/(?P<goods_id>\d+)", views.goods),  #详情
+    re_path(r"update_goods/(?P<goods_id>\d+)", views.update_goods), #修改商品
+    re_path(r'goods_status/(?P<state>\w+)', views.goods_status),  #商品状态
     path("logout/", views.logout),
+]
+
+
+
+
+urlpatterns += [
+    path("base/", views.base)
 ]

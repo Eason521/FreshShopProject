@@ -25,8 +25,13 @@
                     <td>{{ goods.goods_date }}</td>
                     <td>{{ goods.goods_safeDate }}</td>
                     <td>
-                        <a class="btn btn-danger" href="#">下架</a>
+                        {% ifequal status "up" %}
+                        <a class="btn btn-danger" href="/store/goods_status/down/?goods_id={{ goods.id }}">下架</a>
+                        {% else %}
+                        <a class="btn btn-danger" href="/store/goods_status/up/?goods_id={{ goods.id }}">上架</a>
+                        {% endifequal %}
                         <a class="btn btn-primary" href="#">销毁</a>
+
                     </td>
                 </tr>
             {% endfor %}

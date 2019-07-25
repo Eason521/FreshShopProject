@@ -138,7 +138,9 @@ def register_store(request):
             store_type = models.StoreType.objects.get(id=i)  # 查询类型数据
             store.type.add(store_type)  # 添加到类型字段，多对多的映射表
         store.save()  # 保存数据
-        return HttpResponseRedirect("/store/index/")
+        response = HttpResponseRedirect("/store/index/")
+        response.set_cookie("has_store", store.id)
+        return response
     return render(request,"store/register_store.html",locals())
 
 
@@ -181,7 +183,14 @@ def add_goods(request):
 
 
 @loginValid
-def list_goods(request):  #分页展示所有商品并只展示本人店铺的
+def list_goods(request,status):  #分页展示所有商品并只展示本人店铺的
+    if status == "up":
+        state =1
+    else:
+        state =0
+
+
+
     keywords = request.GET.get("keywords")
     page_num = request.GET.get("page_num",1)
 
@@ -189,10 +198,11 @@ def list_goods(request):  #分页展示所有商品并只展示本人店铺的
     store_id = request.COOKIES.get("has_store")
     store = models.Store.objects.get(id=int(store_id))
     if keywords:  # 判断关键词是否存在
-        goods_list = store.goods_set.filter(goods_name__contains=keywords)  # 完成了模糊查询
+        goods_list = store.goods_set.filter(goods_name__contains=keywords,goods_status=state)  # 完成了模糊查询
 
     else:  # 如果关键词不存在，查询所有
-        goods_list = store.goods_set.all()
+        goods_list = store.goods_set.filter(goods_status=state)
+
     paginator = Paginator(goods_list,3)
     page = paginator.page(int(page_num))
     page_range = paginator.page_range
@@ -206,7 +216,6 @@ def goods(request,goods_id):  #商品详情
 @loginValid
 def update_goods(request,goods_id):  #修改商品
     goods_data = models.Goods.objects.filter(id=goods_id).first()
-
     if request.method == "POST":
         goods_name = request.POST.get("goods_name")
         goods_price = request.POST.get("goods_price")
@@ -231,6 +240,19 @@ def update_goods(request,goods_id):  #修改商品
     return render(request,"store/update_goods.html",locals())
 
 
+def goods_status(request,state):
+
+    if state == "up":
+        s = 1
+    else:
+        s=0
+    goods_id=request.GET.get("goods_id")
+    refer = request.META.get("HTTP_REFERER")  #代表上一次的url
+    if goods_id:
+        goods = models.Goods.objects.filter(id =goods_id).first()
+        goods.goods_status = s
+        goods.save()
+    return HttpResponseRedirect(refer)
 
 
 
@@ -249,5 +271,7 @@ def update_goods(request,goods_id):  #修改商品
 
 
 
-def blank(request):
+
+
+def base(request):
     return render(request, "store/base.html", locals())
