@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,re_path,include
-from Buyer.views import base
+from Buyer.views import index
 
 
 urlpatterns = [
@@ -23,6 +23,6 @@ urlpatterns = [
     path('ckeditor/', include("ckeditor_uploader.urls")),
     path('store/', include("Store.urls")),
     path('buyer/', include("Buyer.urls")),
-    re_path('^$', base),
+    re_path('^$', index),
 
 ]
