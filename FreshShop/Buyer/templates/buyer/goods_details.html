@@ -4,37 +4,57 @@
 {% endblock %}
 {% block content %}
 
-	<div class="breadcrumb">
-		<a href="/buyer/index/">全部分类</a>
-		<span>></span>
-		<a href="/buyer/goods_list/?id={{ goods.goods_type_id }}">{{ goods_type.name }}</a>
-		<span>></span>
-		<a href="#">商品详情</a>
-	</div>
+    <div class="breadcrumb">
+        <a href="/buyer/index/">全部分类</a>
+        <span>></span>
+        <a href="/buyer/goods_list/?id={{ goods.goods_type_id }}">{{ goods_type.name }}</a>
+        <span>></span>
+        <a href="#">商品详情</a>
+    </div>
 
-	<div class="goods_detail_con clearfix">
-		<div class="goods_detail_pic fl"><img src="/static/{{ goods.goods_image }}"></div>
+    <div class="goods_detail_con clearfix">
+        <div class="goods_detail_pic fl"><img src="/static/{{ goods.goods_image }}"></div>
 
-		<div class="goods_detail_list fr">
-			<h3>{{ goods.goods_name }}</h3>
-			<p>{{ goods.goods_description }}</p>
-			<div class="prize_bar">
-				<span class="show_pirze">¥<em>{{ goods.goods_price }}</em></span>
-				<span class="show_unit">单  位：500g</span>
-			</div>
-			<div class="goods_num clearfix">
-				<div class="num_name fl">数 量：</div>
-				<div class="num_add fl">
-					<input type="text" class="num_show fl" value="1">
-					<a href="javascript:;" class="add fr">+</a>
-					<a href="javascript:;" class="minus fr">-</a>
-				</div>
-			</div>
-			<div class="total">总价：<em>{{ goods.goods_price }}元</em></div>
-			<div class="operate_btn">
-				<a href="javascript:;" class="buy_btn">立即购买</a>
-				<a href="javascript:;" class="add_cart" id="add_cart">加入购物车</a>
-			</div>
-		</div>
-	</div>
+        <div class="goods_detail_list fr">
+            <h3>{{ goods.goods_name }}</h3>
+            <p>{{ goods.goods_description }}</p>
+            <div class="prize_bar">
+                <span class="show_pirze">¥<em>{{ goods.goods_price }}</em></span>
+                <span class="show_unit">单  位：500g</span>
+            </div>
+            <div class="goods_num clearfix">
+                <div class="num_name fl">数 量：</div>
+                <div class="num_add fl">
+                    <input type="text" class="num_show fl" id="num_show" value="1">
+                    <a href="javascript:optionNum('add');" class="add fr">+</a>
+                    <a href="javascript:optionNum('minus');" class="minus fr">-</a>
+                </div>
+            </div>
+            <div class="total">总价：<em><input style="pointer-events: none;border: none" id="price" value="{{ goods.goods_price }}">元</em></div>
+            <div class="operate_btn">
+                <a href="javascript:;" class="buy_btn">立即购买</a>
+                <a href="javascript:;" class="add_cart" id="add_cart">加入购物车</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block script %}
+    <script>
+        var price=$("#price").val();
+        function optionNum(data) {
+            var num=$("#num_show").val();
+            if(data=="add"){
+                num++;
+            }else if(data=="minus" && num > 1){
+                num--;
+            }else {
+                num=1
+            }
+            $("#num_show").val(num);
+            var total=price*num;
+            $("#price").val(total);
+        }
+
+    </script>
+
 {% endblock %}
