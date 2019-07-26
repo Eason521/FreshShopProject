@@ -1,10 +1,12 @@
 # coding:utf-8
 import hashlib
 import json
+import os
 
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.shortcuts import HttpResponseRedirect
+
 
 from Store import models
 
@@ -186,7 +188,6 @@ def add_goods(request):
 
 # @loginValid
 # def goods_list(request):  #展示所有商品
-
 #     goods_list = models.Goods.objects.all()
 #     return render(request,"store/goods_list.html",{"goods_list":goods_list})
 
@@ -210,8 +211,7 @@ def list_goods(request, status):  # 分页展示所有商品并只展示本人�
     else:  # 如果关键词不存在，查询所有
         goods_list = store.goods_set.filter(goods_status=state)
 
-
-    #分页
+    # 分页
     paginator = Paginator(goods_list, 3)
     page = paginator.page(int(page_num))
     page_range = paginator.page_range
@@ -251,6 +251,9 @@ def update_goods(request, goods_id):  # 修改商品
     return render(request, "store/update_goods.html", locals())
 
 
+
+
+
 def goods_status(request, state):
     if state == "up":
         s = 1
@@ -267,3 +270,5 @@ def goods_status(request, state):
 
 def base(request):
     return render(request, "store/base.html", locals())
+
+
