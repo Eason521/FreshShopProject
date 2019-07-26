@@ -3,24 +3,32 @@
     首页
 {% endblock %}
 {% block content %}
-    <div class="main_wrap clearfix">
-        <div class="l_wrap fl clearfix">
-            <div class="new_goods">
-                <h3>新品推荐</h3>
-                <ul>
-                    <li>
-                        <a href="#"><img src="/static/{{ goods.image }}"></a>
-                        <h4><a href="#">进口柠檬</a></h4>
-                        <div class="prize">￥3.90</div>
-                    </li>
-                    <li>
-                        <a href="#"><img src="/static/{{ goods.goods_image }}"></a>
-                        <h4><a href="#">玫瑰香葡萄</a></h4>
-                        <div class="prize">￥16.80</div>
-                    </li>
-                </ul>
-            </div>
+    <div class="center_con clearfix">
+        <ul class="subnav fl">
+            <li><a href="#model01" class="fruit">新鲜水果</a></li>
+            <li><a href="#model02" class="seafood">海鲜水产</a></li>
+            <li><a href="#model03" class="meet">猪牛羊肉</a></li>
+            <li><a href="#model04" class="egg">禽类蛋品</a></li>
+            <li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
+            <li><a href="#model06" class="ice">速冻食品</a></li>
+        </ul>
+        <div class="slide fl">
+            <ul class="slide_pics">
+                <li><img src="/static/buyer/images/slide.jpg" alt="幻灯片"></li>
+                <li><img src="/static/buyer/images/slide02.jpg" alt="幻灯片"></li>
+                <li><img src="/static/buyer/images/slide03.jpg" alt="幻灯片"></li>
+                <li><img src="/static/buyer/images/slide04.jpg" alt="幻灯片"></li>
+            </ul>
+            <div class="prev"></div>
+            <div class="next"></div>
+            <ul class="points"></ul>
         </div>
+        <div class="adv fl">
+            <a href="#"><img src="/static/buyer/images/adv01.jpg"></a>
+            <a href="#"><img src="/static/buyer/images/adv02.jpg"></a>
+        </div>
+    </div>
+    <div class="main_wrap clearfix">
 
         <div class="r_wrap fr clearfix">
             <div class="sort_bar">
@@ -32,8 +40,8 @@
             <ul class="goods_type_list clearfix">
                 {% for goods in goodsList %}
                 <li>
-                    <a href="detail.html"><img src="/static/{{ goods.goods_image }}"></a>
-                    <h4><a href="detail.html">{{ goods.goods_name }}</a></h4>
+                    <a href="/buyer/goods_detail/?id={{ goods.id }}"><img src="/static/{{ goods.goods_image }}"></a>
+                    <h4><a href="/buyer/goods_detail/?id={{ goods.id }}">{{ goods.goods_name }}</a></h4>
                     <div class="operate">
                         <span class="prize">￥{{ goods.goods_price }}</span>
                         <span class="unit">{{ goods.goods_price }}/500g</span>
@@ -41,22 +49,10 @@
                     </div>
                 </li>
                 {% endfor %}
-
-                <li>
-                    <a href="#"><img src="/static/{{ goods.goods_image }}"></a>
-                    <h4><a href="#">吐鲁番梨光杏</a></h4>
-                    <div class="operate">
-                        <span class="prize">￥5.50</span>
-                        <span class="unit">5.50/500g</span>
-                        <a href="#" class="add_goods" title="加入购物车"></a>
-                    </div>
-                </li>
             </ul>
 
             <div class="pagenation">
-                <a href="#">
-                    <上一页
-                </a>
+                <a href="#">上一页</a>
                 <a href="#" class="active">1</a>
                 <a href="#">2</a>
                 <a href="#">3</a>
