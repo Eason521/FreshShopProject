@@ -6,12 +6,14 @@ urlpatterns = [
     path("register/",register),
     path("login/",login),
     re_path(r"goods_list/",goods_list),
-    # re_path(r"goods_detail/",goods_detail),
-    path("pay_order/", pay_order),
     path("goods_detail/", goods_detail),
-    path("pay_result/", pay_result),
+    path("place_order/", place_order),
+    path("card/", card),
+
 ]
 
 urlpatterns += [
     path("base/",base),
+    path("pay_order/", pay_order),
+    path("pay_result/", pay_result),
 ]
