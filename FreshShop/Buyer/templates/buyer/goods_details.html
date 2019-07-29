@@ -13,8 +13,7 @@
     </div>
 
     <div class="goods_detail_con clearfix">
-        <div class="goods_detail_pic fl"><img src="/static/{{ goods.goods_image }}" style="width: 350px;height: 350px">
-        </div>
+        <div class="goods_detail_pic fl"><img src="/static/{{ goods.goods_image }}" style="width: 350px;height: 350px"></div>
 
         <div class="goods_detail_list fr">
             <h3>{{ goods.goods_name }}</h3>
@@ -39,6 +38,8 @@
             <div class="operate_btn">
                 <button id="order_detail" class="buy_btn">立即购买</button>
                 <button id="add_cart" class="add_cart">加入购物车</button>
+                {#                <a href="javascript:;" class="buy_btn">立即购买</a>#}
+                {#                <a href="javascript:;" class="add_cart" id="add_cart">加入购物车</a>#}
             </div>
         </div>
     </div>
@@ -46,18 +47,19 @@
 {% block script %}
     <script>
         var goods_price = $("#price").val();
-        var num = $("#num_show").val();
+        var num=$("#num_show").val();
         var total = goods_price * num;
-
         function optionNum(data) {
-            num = $("#num_show").val();
+            num=$("#num_show").val();
+
             if (data == "add") {
-                $("#num_show").val(++num);
+                num++;
             } else if (data == "minus" && num > 1) {
-                $("#num_show").val(--num);
+                num--;
             } else {
                 num = 1
             }
+            $("#num_show").val(num);
             total = goods_price * num;
             $("#price").val(total);
         }
@@ -66,26 +68,15 @@
             function () {
                 $("#order_detail").href(
                     location.href = '/buyer/place_order/?' +
-                        'goods_name={{ goods.goods_name }}&goods_price={{ goods.goods_price }}&goods_num=' +
-                        num +
-                        '&total=' +
-                        total
-                )
-
-            }
-        );
-        $("#add_cart").click(
-            function () {
-                $("#add_cart").href(
-                    location.href = '/buyer/add_cart/?' +
-                        'goods_name={{ goods.goods_name }}&goods_price={{ goods.goods_price }}&goods_num=' +
-                        num +
-                        '&total=' +
+                        'goods_name={{ goods.goods_name }}&goods_price={{ goods.goods_price }}&goods_num='+
+                        num+
+                        '&total='+
                         total
                 )
 
             }
         )
+
     </script>
 
 {% endblock %}
