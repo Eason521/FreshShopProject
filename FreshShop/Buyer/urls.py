@@ -8,7 +8,8 @@ urlpatterns = [
     re_path(r"goods_list/",goods_list),
     path("goods_detail/", goods_detail),
     path("place_order/", place_order),
-    path("card/", card),
+    path("add_cart/", add_cart),
+    path("cart/", cart),
 
 ]
 
