@@ -11,11 +11,12 @@ urlpatterns = [
     path("add_cart/", add_cart),
     path("cart/", cart),
     path("causer_center_sitert/", user_center_site),
+    path("pay_result/", pay_result),
 
 ]
 
 urlpatterns += [
     path("base/",base),
     path("pay_order/", pay_order),
-    path("pay_result/", pay_result),
+
 ]

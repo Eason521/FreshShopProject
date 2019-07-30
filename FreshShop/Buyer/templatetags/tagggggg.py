@@ -1,5 +1,6 @@
 from django import template
-from Store import models
+from Store.models import *
+from Buyer.models import *
 
 register = template.Library()
 
@@ -8,3 +9,8 @@ register = template.Library()
 def goods_online(value):
     goods = value.goods_set.all()
     return goods
+
+@register.filter(name="cart")
+def buy_cart(value): #goods.goods_id
+    goods = Goods.objects.filter(id=value).first()
+    return goods.goods_image

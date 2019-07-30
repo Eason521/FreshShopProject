@@ -8,7 +8,9 @@
     <div class="common_list_con clearfix">
         <dl>
             <dt>寄送到：</dt>
-            <dd><input type="radio" name="order_address" checked="" value="北京市 海淀区 东北旺西路8号中关村软件园 （李思 收） 182****7528">北京市 海淀区 东北旺西路8号中关村软件园 （李思 收） 182****7528</dd>
+            <dd><input type="radio" name="order_address" checked="" value="北京市 海淀区 东北旺西路8号中关村软件园 （李思 收） 182****7528">北京市
+                海淀区 东北旺西路8号中关村软件园 （李思 收） 182****7528
+            </dd>
         </dl>
         <a href="user_center_site.html" class="edit_site">编辑收货地址</a>
 
@@ -53,15 +55,16 @@
 
     <div class="common_list_con clearfix">
         <div class="settle_con">
-            <div class="total_goods_count">共<em>{{ goods_num }}</em>件商品，总金额<b>{{ total }}元</b></div>
+            <div class="total_goods_count">共<em><input name="count"
+                                                       value="{{ goods_num }}"></em>件商品，总金额<b>{{ total }}元</b></div>
             <div class="transit">运费：<b>0元</b></div>
             <div class="total_pay">实付款：<b>{{ total }}元</b></div>
         </div>
     </div>
 
-    <div class="order_submit clearfix" id="order_btn">
-        <button href="javascript:;" id="order_btn">去付款</button>
-        {#        <a href="/buyer/pay_order/?goods_price=29&order_id=1" id="order_btn">提交订单</a>#}
+    <div class="order_submit clearfix">
+{#        <button id="order_btn">去付款</button>#}
+                <a id="order_btn">提交订单</a>
         {#        <a href="javascript:;" id="order_btn">提交订单</a>#}
     </div>
 
@@ -86,6 +89,8 @@
 
         <div class="mask"></div>
     </div>
+{% endblock %}
+{% block script %}
     <script type="text/javascript" src="/static/buyer/js/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
         $('#order_btn').click(function () {
@@ -95,29 +100,12 @@
 
                 setTimeout(function () {
                     $('.popup_con').fadeOut('fast', function () {
-                        window.location.href = '/buyer/pay_order/?order_id={{ order }}&goods_price={{ total }}';
+                        window.location.href = '/buyer/pay_order/?order_id={{ order_id }}&goods_price={{ total }}';
                     });
                 }, 3000)
 
             });
         });
     </script>
-
 {% endblock %}
-{#{% block script %}#}
-{#    <script>#}
-{#        $("#order_btn").click(#}
-{#            function () {#}
-{#                var goods_num = $("#num_show").val();#}
-{#                $("#order_detail").href(#}
-{#                    location.href = '/buyer/place_order/?' +#}
-{#                        'goods_name={{ goods.goods_name }}&goods_price={{ goods.goods_price }}&goods_num=' +#}
-{#                        goods_num +#}
-{#                        '&total=' +#}
-{#                        total#}
-{#                )#}
-{##}
-{#            }#}
-{#        )#}
-{#    </script>#}
-{#{% endblock %}#}
+
