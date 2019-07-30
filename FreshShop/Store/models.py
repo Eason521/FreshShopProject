@@ -72,7 +72,5 @@ class GoodsImg(models.Model):
     goods_id = models.ForeignKey(to = Goods,on_delete = models.CASCADE, verbose_name="商品id")
 
 
-#创建后台订单管理类
-class order(models.Model):
-    pass
+
 

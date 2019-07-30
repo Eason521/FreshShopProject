@@ -16,10 +16,11 @@
 	</ul>
 
     {% for goods in goods_list%}
+        {{ forloop.counter }}
     <ul class="cart_list_td clearfix">
 
 		<li class="col01"><input type="checkbox" name="" checked></li>
-		<li class="col02"><img src="/static/{{ goods.goods_id|cart }}"></li>
+		<li class="col02"><img src="/static/{{ goods.goods_image }}"></li>
 		<li class="col03">{{ goods.goods_name }}<br><em>{{ goods.goods_price }}元/500g</em></li>
 		<li class="col04">{{ goods.goods_num }}*500g</li>
         <li class="col05"><em id="price">{{ goods.goods_price }}</em></li>
@@ -37,27 +38,12 @@
 	<ul class="settlements">
 		<li class="col01"><input type="checkbox" name="" checked=""></li>
 		<li class="col02">全选</li>
-		<li class="col03">合计(不含运费)：<span>¥</span><em>{{ goods.total }}</em><br>共计<b>2</b>件商品</li>
+		<li class="col03">合计(不含运费)：<span>¥</span><em>{{ goods.total }}</em><br>共计<b>{{ goods }}</b>件商品</li>
 		<li class="col04"><a href="/buyer/pay_order/">去结算</a></li>
 	</ul>
 {% endblock %}
 {% block script %}
     <script>
-        function optionNum(data) {
-            var goods_price=$("#price").text();
-            var num = $("#num_show").val();
-            console.log(num);
-            total = goods_price * num;
-            if (data == "add") {
-                num++;
-            } else if (data == "minus" && num > 1) {
-                num--;
-            } else {
-                num = 1
-            }
-            $("#num_show").val(num);
 
-            $("#total").text(total);
-        }
     </script>
 {% endblock %}

@@ -13,6 +13,7 @@ urlpatterns = [
     re_path(r"update_goods/(?P<goods_id>\d+)", views.update_goods), #修改商品
     re_path(r'goods_status/(?P<state>\w+)', views.goods_status),  #商品状态
     path("logout/", views.logout),
+    path("order_list/", views.order_list),
 ]
 
 

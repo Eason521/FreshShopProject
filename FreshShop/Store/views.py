@@ -8,7 +8,8 @@ from django.core.paginator import Paginator
 from django.shortcuts import HttpResponseRedirect
 
 
-from Store import models
+from Store.models import *
+from Buyer.models import *
 
 
 # Create your views here.
@@ -25,14 +26,14 @@ def register(request):  # 注册函数
         password = request.POST.get("password")
         c_password = request.POST.get("confirm_password")
         if username and password and c_password:
-            sql_username = models.Seller.objects.filter(username=username).first()
+            sql_username = Seller.objects.filter(username=username).first()
             if sql_username:
                 result["info"] = "用户已存在"
                 return render(request, "store/register.html", locals())
 
             else:
                 if password == c_password:
-                    models.Seller.objects.create(
+                    Seller.objects.create(
                         username=username,
                         password=setPassword(password)
                     )
@@ -51,9 +52,9 @@ def loginValid(fun):  # 装饰器
         if c_user and s_user:  # 用户名称cookie
             username = json.loads(c_user)
             if username == s_user:
-                user = models.Seller.objects.filter(username=username).first()
+                user = Seller.objects.filter(username=username).first()
                 if user:  # 用户存在
-                    store = models.Store.objects.filter(user_id=user.id).first()
+                    store = Store.objects.filter(user_id=user.id).first()
                     response = fun(request, *args, **kwargs)
                     if store:
                         response.set_cookie("has_store", store.id)
@@ -74,7 +75,7 @@ def login(request):  # 登录函数
         username = request.POST.get("username")
         password = request.POST.get("password")
         if username and password:
-            sql_username = models.Seller.objects.filter(username=username).first()
+            sql_username = Seller.objects.filter(username=username).first()
             if sql_username:  # 如果存在用户
                 cookie = request.COOKIES.get("login_form")
                 hex_password = setPassword(password)
@@ -86,7 +87,7 @@ def login(request):  # 登录函数
                     response.set_cookie("user_id", sql_username.id)  # cookie提供用户id方便其他功能查询
                     request.session["username"] = username
                     # 检测该用户是否有店铺
-                    store = models.Store.objects.filter(user_id=sql_username.id).first()
+                    store = Store.objects.filter(user_id=sql_username.id).first()
                     if store:
                         response.set_cookie("has_store", store.id)
                     else:
@@ -116,7 +117,7 @@ def index(request):
 
 @loginValid
 def register_store(request):
-    type_list = models.StoreType.objects.all()
+    type_list = StoreType.objects.all()
     if request.method == "POST":
         store_name = request.POST.get("store_name")
         store_address = request.POST.get("store_address")
@@ -130,7 +131,7 @@ def register_store(request):
         store_logo = request.FILES.get("store_logo")  # 通过request.FILES得到图片文件
 
         # 保存非多对多数据
-        store = models.Store()
+        store = Store()
         store.store_name = store_name
         store.store_description = store_description
         store.store_phone = store_phone
@@ -142,7 +143,7 @@ def register_store(request):
 
         # 在生成的数据当中添加多对多字段。
         for i in type_list:  # 循环type列表，得到类型id
-            store_type = models.StoreType.objects.get(id=i)  # 查询类型数据
+            store_type = StoreType.objects.get(id=i)  # 查询类型数据
             store.type.add(store_type)  # 添加到类型字段，多对多的映射表
         store.save()  # 保存数据
         response = HttpResponseRedirect("/store/index/")
@@ -153,7 +154,7 @@ def register_store(request):
 
 @loginValid
 def add_goods(request):
-    goods_type = models.GoodsType.objects.all()
+    goods_type = GoodsType.objects.all()
     if request.method == "POST":
         # 获取post请求
         goods_name = request.POST.get("goods_name")
@@ -166,7 +167,7 @@ def add_goods(request):
         goods_image = request.FILES.get("goods_image")
         goods_type = request.POST.get("goods_type")  # 返回的是一个列表
         # 开始保存数据
-        goods = models.Goods()
+        goods = Goods()
         goods.goods_name = goods_name
         goods.goods_price = goods_price
         goods.goods_number = goods_number
@@ -179,7 +180,7 @@ def add_goods(request):
         goods.save()
         # 保存多对多数据
         goods.store_id.add(
-            models.Store.objects.get(id=int(goods_store))
+            Store.objects.get(id=int(goods_store))
         )
         goods.save()
         return HttpResponseRedirect("/store/goods_list/up/")
@@ -188,7 +189,7 @@ def add_goods(request):
 
 # @loginValid
 # def goods_list(request):  #展示所有商品
-#     goods_list = models.Goods.objects.all()
+#     goods_list = Goods.objects.all()
 #     return render(request,"store/goods_list.html",{"goods_list":goods_list})
 
 
@@ -204,7 +205,7 @@ def list_goods(request, status):  # 分页展示所有商品并只展示本人�
 
     # 查询店铺
     store_id = request.COOKIES.get("has_store")
-    store = models.Store.objects.get(id=int(store_id))
+    store = Store.objects.get(id=int(store_id))
     if keywords:  # 判断关键词是否存在
         goods_list = store.goods_set.filter(goods_name__contains=keywords, goods_status=state)  # 完成了模糊查询
 
@@ -220,13 +221,13 @@ def list_goods(request, status):  # 分页展示所有商品并只展示本人�
 
 @loginValid
 def goods(request, goods_id):  # 商品详情
-    goods_data = models.Goods.objects.filter(id=goods_id).first()
+    goods_data = Goods.objects.filter(id=goods_id).first()
     return render(request, "store/goods.html", locals())
 
 
 @loginValid
 def update_goods(request, goods_id):  # 修改商品
-    goods_data = models.Goods.objects.filter(id=goods_id).first()
+    goods_data = Goods.objects.filter(id=goods_id).first()
     if request.method == "POST":
         goods_name = request.POST.get("goods_name")
         goods_price = request.POST.get("goods_price")
@@ -237,7 +238,7 @@ def update_goods(request, goods_id):  # 修改商品
         goods_store = request.POST.get("goods_store")
         goods_image = request.FILES.get("goods_image")
         # 开始修改数据
-        goods = models.Goods.objects.filter(id=goods_id).first()
+        goods = Goods.objects.filter(id=goods_id).first()
         goods.goods_name = goods_name
         goods.goods_price = goods_price
         goods.goods_number = goods_number
@@ -262,10 +263,19 @@ def goods_status(request, state):
     goods_id = request.GET.get("goods_id")
     refer = request.META.get("HTTP_REFERER")  # 代表上一次的url
     if goods_id:
-        goods = models.Goods.objects.filter(id=goods_id).first()
+        goods = Goods.objects.filter(id=goods_id).first()
         goods.goods_status = s
         goods.save()
     return HttpResponseRedirect(refer)
+
+
+def order_list(request):
+
+    store_id = request.COOKIES.get("has_store")
+    store = Store.objects.filter(id=store_id).first()
+    store_name = store.store_name
+    order_list = OrderDetail.objects.filter(order_id__order_status=2,goods_store=store_name)
+    return render(request, "store/order_list.html", locals())
 
 
 def base(request):
