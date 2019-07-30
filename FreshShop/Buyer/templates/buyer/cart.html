@@ -4,46 +4,73 @@
     购物车
 {% endblock %}
 {% block content %}
+    <form method="post" action="/buyer/cart_order/">
+        {% csrf_token %}
+        <div class="total_count">全部商品<em>{{ num }}</em>件</div>
+        <ul class="cart_list_th clearfix">
+            <li class="col01">商品名称</li>
+            <li class="col02">商品单位</li>
+            <li class="col03">商品价格</li>
+            <li class="col04">数量</li>
+            <li class="col05">小计</li>
+            <li class="col06">操作</li>
+        </ul>
 
-	<div class="total_count">全部商品<em>2</em>件</div>	
-	<ul class="cart_list_th clearfix">
-		<li class="col01">商品名称</li>
-		<li class="col02">商品单位</li>
-		<li class="col03">商品价格</li>
-		<li class="col04">数量</li>
-		<li class="col05">小计</li>
-		<li class="col06">操作</li>
-	</ul>
+        {% for goods in goods_list %}
 
-    {% for goods in goods_list%}
-        {{ forloop.counter }}
-    <ul class="cart_list_td clearfix">
+            <ul class="cart_list_td clearfix">
 
-		<li class="col01"><input type="checkbox" name="" checked></li>
-		<li class="col02"><img src="/static/{{ goods.goods_image }}"></li>
-		<li class="col03">{{ goods.goods_name }}<br><em>{{ goods.goods_price }}元/500g</em></li>
-		<li class="col04">{{ goods.goods_num }}*500g</li>
-        <li class="col05"><em id="price">{{ goods.goods_price }}</em></li>
-		<li class="col06">
-			<div class="num_add">
-				<a href="javascript:optionNum('add');" class="add fl">+</a>
-				<input type="text" class="num_show fl" value="{{ goods.goods_num }}">
-				<a href="javascript:optionNum('minus');" class="minus fl">-</a>
-			</div>
-		</li>
-		<li class="col07"><em id="total"><input type="text" value="{{ goods.total }}"></em>元</li>
-		<li class="col08"><a href="javascript:;">删除</a></li>
-	</ul>
-    {% endfor %}
-	<ul class="settlements">
-		<li class="col01"><input type="checkbox" name="" checked=""></li>
-		<li class="col02">全选</li>
-		<li class="col03">合计(不含运费)：<span>¥</span><em>{{ goods.total }}</em><br>共计<b>{{ goods }}</b>件商品</li>
-		<li class="col04"><a href="/buyer/pay_order/">去结算</a></li>
-	</ul>
+                <li class="col01"><input class="goods_check" type="checkbox" value="{{ goods.id }}"
+                                         name="goods_{{ goods.id }}" checked></li>
+                <li class="col02"><img src="/static/{{ goods.goods_image }}"></li>
+                <li class="col03">{{ goods.goods_name }}<br><em>{{ goods.goods_price }}元/500g</em></li>
+                <li class="col04">{{ goods.goods_num }}*500g</li>
+                <li class="col05"><em id="price">{{ goods.goods_price }}</em></li>
+                <li class="col06">
+                    <div class="num_add">
+                        <a href="javascript:optionNum('add');" class="add fl">+</a>
+                        <input type="text" class="num_show fl" value="{{ goods.goods_num }}">
+                        <a href="javascript:optionNum('minus');" class="minus fl">-</a>
+                    </div>
+                </li>
+                <li class="col07"><em id="total"><input type="text" value="{{ goods.total }}"></em>元</li>
+                <li class="col08"><a href="javascript:;">删除</a></li>
+            </ul>
+        {% endfor %}
+        <ul class="settlements">
+            <li class="col01"><input type="checkbox" name="" id="allBox" checked=""></li>
+            <li class="col02">全选</li>
+            <li class="col03">合计(不含运费)：<span>¥</span><em>{{ goods_total }}</em><br>共计<b>{{ num }}</b>件商品</li>
+            <li class="col04"><input type="submit" value="去结算"></li>
+        </ul>
+    </form>
 {% endblock %}
 {% block script %}
     <script>
+        $("#allBox").click(
+            function () {
+                if (this.checked) {
+                    $(".goods_check").prop("checked", true)
+                } else {
+                    $(".goods_check").prop("checked", false)
+                }
+
+            }
+        );
+        $(".goods_check").each(
+            function () {
+                $(this).click(
+                    function () {
+                        if (!this.checked) {
+                            $("#allBox").prop("checked", false)
+                        }
+
+                    }
+                )
+
+            }
+        )
+
 
     </script>
 {% endblock %}

@@ -10,6 +10,7 @@ urlpatterns = [
     path("place_order/", place_order),
     path("add_cart/", add_cart),
     path("cart/", cart),
+    path("cart_order/", cart_order),
     path("causer_center_sitert/", user_center_site),
     path("pay_result/", pay_result),
 

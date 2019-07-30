@@ -1,3 +1,4 @@
+{% load cookieTag %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
@@ -15,20 +16,26 @@
     <div class="header">
         <div class="welcome fl">欢迎来到天天生鲜!</div>
         <div class="fr">
-            <div class="login_info fl">
-                欢迎您：<em>张 山</em>
-            </div>
+
             {% if request.COOKIES.username %}
-            <div class="login_btn fl">
-                <a href="/buyer/login/">退出</a>
-                <span>|</span>
-            </div>
+                <div class="login_info fl">
+                    欢迎您：<em>{{ request.COOKIES.username|validcookie }}</em>
+                </div>
+
+                <div class="login_btn fl">
+                    欢迎您：<em>{{ request.COOKIES.username|validcookie }}</em>
+                    <span>|</span>
+                </div>
+                <div class="login_btn fl">
+                    <a href="/buyer/login/">退出</a>
+                </div>
             {% else %}
-             <div class="login_btn fl">
-                <a href="/buyer/login/">登录</a>
-                <span>|</span>
-                <a href="/buyer/register/">注册</a>
-            </div>
+                <div class="login_btn fl">
+                    <a href="/buyer/login/">登录</a>
+                    <span>|</span>
+                    <a href="/buyer/register/">注册</a>
+
+                </div>
             {% endif %}
 
             <div class="user_link fl">
@@ -56,13 +63,11 @@
 </div>
 
 
-
-
 <div class="navbar_con">
     <div class="navbar">
         <h1 class="fl">全部商品分类</h1>
         <ul class="navlist fl">
-            <li><a href="">首页</a></li>
+            <li><a href="/buyer/index/">首页</a></li>
             <li class="interval">|</li>
             <li><a href="">手机生鲜</a></li>
             <li class="interval">|</li>

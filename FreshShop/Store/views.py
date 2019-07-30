@@ -270,11 +270,12 @@ def goods_status(request, state):
 
 
 def order_list(request):
+    status =request.GET.get("status")
 
     store_id = request.COOKIES.get("has_store")
     store = Store.objects.filter(id=store_id).first()
     store_name = store.store_name
-    order_list = OrderDetail.objects.filter(order_id__order_status=2,goods_store=store_name)
+    order_list = OrderDetail.objects.filter(order_id__order_status=status,goods_store=store_name)
     return render(request, "store/order_list.html", locals())
 
 
