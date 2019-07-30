@@ -10,14 +10,23 @@ urlpatterns = [
     path("place_order/", place_order),
     path("add_cart/", add_cart),
     path("cart/", cart),
+    path("del_cart_goods/", del_cart_goods),
     path("cart_order/", cart_order),
+    path("user_center_order/", user_center_order),
+    path("user_center_info/", user_center_info),
     path("causer_center_sitert/", user_center_site),
-    path("pay_result/", pay_result),
+
+    path("getProvince/", getProvince),
+    path("getCity/", getCity),
+    path("getDistrict/", getDistrict),
+
+
+
 
 ]
 
 urlpatterns += [
     path("base/",base),
     path("pay_order/", pay_order),
-
+    path("pay_result/", pay_result),
 ]
