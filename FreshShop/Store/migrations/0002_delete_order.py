@@ -9,8 +9,4 @@ class Migration(migrations.Migration):
         ('Store', '0001_initial'),
     ]
 
-    operations = [
-        migrations.DeleteModel(
-            name='order',
-        ),
-    ]
+

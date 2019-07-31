@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c2cf1f6-c8ad-4969-864f-b2278ad379aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Buyer/migrations/0003_area.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Buyer/templates/buyer/user_center_info.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Buyer/templates/buyer/user_center_order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Store/migrations/0002_delete_order.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Buyer/templates/buyer/base_user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Buyer/templates/buyer/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/templates/buyer/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Buyer/templates/buyer/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/templates/buyer/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Buyer/templates/buyer/goods_details.html" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/templates/buyer/goods_details.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Buyer/templatetags/tagggggg.py" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/templatetags/tagggggg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Buyer/templates/buyer/user_center_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/templates/buyer/user_center_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Buyer/templates/buyer/user_center_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/templates/buyer/user_center_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Buyer/templates/buyer/user_center_site.html" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/templates/buyer/user_center_site.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Buyer/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Buyer/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Store/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Store/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Store/migrations/0002_delete_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/Store/migrations/0002_delete_order.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,17 +59,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Buyer/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+            <state relative-caret-position="118">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Buyer/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
-              <caret line="319" lean-forward="true" selection-start-line="319" selection-end-line="319" />
+            <state relative-caret-position="201">
+              <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -79,29 +77,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Buyer/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="55" column="4" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+            <state relative-caret-position="-265">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/base.html">
+        <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_site.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="124" column="31" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
+            <state relative-caret-position="76">
+              <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/base_user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_order.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -166,10 +173,8 @@
         <option value="$PROJECT_DIR$/Buyer/templates/buyer/pay_result.html" />
         <option value="$PROJECT_DIR$/Buyer/templates/buyer/goods_list.html" />
         <option value="$PROJECT_DIR$/Buyer/templates/buyer/index.html" />
-        <option value="$PROJECT_DIR$/Buyer/templates/buyer/user_center_site.html" />
         <option value="$PROJECT_DIR$/Buyer/templates/buyer/place_order.html" />
         <option value="$PROJECT_DIR$/Store/templates/store/order_list.html" />
-        <option value="$PROJECT_DIR$/Store/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/Buyer/migrations/0001_initial.py" />
         <option value="$PROJECT_DIR$/Store/urls.py" />
         <option value="$PROJECT_DIR$/Store/models.py" />
@@ -178,20 +183,24 @@
         <option value="$PROJECT_DIR$/static/buyer/css/main.css" />
         <option value="$PROJECT_DIR$/Buyer/templates/buyer/goods_details.html" />
         <option value="$PROJECT_DIR$/Buyer/templates/buyer/cart.html" />
-        <option value="$PROJECT_DIR$/Buyer/templates/buyer/user_center_order.html" />
         <option value="$PROJECT_DIR$/Buyer/templatetags/tagggggg.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/Buyer/models.py" />
-        <option value="$PROJECT_DIR$/Buyer/views.py" />
-        <option value="$PROJECT_DIR$/Buyer/urls.py" />
         <option value="$PROJECT_DIR$/Buyer/templates/buyer/base.html" />
+        <option value="$PROJECT_DIR$/Buyer/migrations/0002_cart_order_orderdetail.py" />
+        <option value="$PROJECT_DIR$/Buyer/models.py" />
+        <option value="$PROJECT_DIR$/Store/migrations/0002_delete_order.py" />
+        <option value="$PROJECT_DIR$/Store/migrations/0001_initial.py" />
+        <option value="$PROJECT_DIR$/Buyer/urls.py" />
+        <option value="$PROJECT_DIR$/Buyer/templates/buyer/user_center_order.html" />
         <option value="$PROJECT_DIR$/Buyer/templates/buyer/user_center_info.html" />
+        <option value="$PROJECT_DIR$/Buyer/templates/buyer/user_center_site.html" />
+        <option value="$PROJECT_DIR$/Buyer/templates/buyer/base_user.html" />
+        <option value="$PROJECT_DIR$/Buyer/views.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="280" />
     <option name="width" value="1025" />
     <option name="height" value="684" />
   </component>
@@ -225,12 +234,6 @@
               <item name="Buyer" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="buyer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FreshShop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FreshShop" type="462c0819:PsiDirectoryNode" />
-              <item name="Buyer" type="462c0819:PsiDirectoryNode" />
-              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -371,7 +374,8 @@
       <workItem from="1564102312789" duration="26155000" />
       <workItem from="1564308813175" duration="12367000" />
       <workItem from="1564363019913" duration="36421000" />
-      <workItem from="1564447917350" duration="36722000" />
+      <workItem from="1564447917350" duration="37275000" />
+      <workItem from="1564534110570" duration="2496000" />
     </task>
     <task id="LOCAL-00001" summary="建立模板，创建数据库语句，并同步">
       <created>1563775281931</created>
@@ -506,11 +510,18 @@
       <option name="project" value="LOCAL" />
       <updated>1564477096368</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="前台订单页面和用户中心功能，地址功能完成一半（未实现保存功能）">
+      <created>1564497248384</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1564497248384</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221412000" />
+    <option name="totallyTimeSpent" value="224461000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -522,20 +533,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="280" y="0" width="1025" height="684" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49758455" visible="true" weight="0.1603631" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49758455" visible="true" weight="0.25595856" />
       <window_info id="Structure" order="1" sideWeight="0.5024155" side_tool="true" weight="0.27688786" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.2967213" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13934426" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3309091" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.48688525" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.29818183" />
-      <window_info anchor="bottom" id="manage.py@FreshShop" order="7" sideWeight="0.49907234" weight="0.35081968" />
+      <window_info anchor="bottom" id="manage.py@FreshShop" order="7" sideWeight="0.49907234" weight="0.24754098" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -547,7 +557,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.18229954" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.031088082" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -613,89 +623,20 @@
     <MESSAGE value="编写购物车，实现可以添加 查看购物车" />
     <MESSAGE value="后台订单管理" />
     <MESSAGE value="购物车提交形成订单，付款并存入" />
-    <option name="LAST_COMMIT_MESSAGE" value="购物车提交形成订单，付款并存入" />
+    <MESSAGE value="前台订单页面和用户中心功能，地址功能完成一半（未实现保存功能）" />
+    <option name="LAST_COMMIT_MESSAGE" value="前台订单页面和用户中心功能，地址功能完成一半（未实现保存功能）" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/buyer_orderdetail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/store_goods_store_id">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/django_migrations">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/store_goodsimg">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/django_content_type">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/buyer_address">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/buyer_buyer">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/store_goodsimg" />
+    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/django_content_type" />
+    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/buyer_address" />
+    <entry file="das://1c9282ce-68a5-4632-a8eb-86e30c34ed2b/schema/freshshop/table/buyer_buyer" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b1074926-98bf-4e34-a560-d0345a25fbc8/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/store_seller">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_buyer">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_address">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_site.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/store_seller" />
+    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_buyer" />
+    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_address" />
     <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/pay_result.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -710,57 +651,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_cart">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/store_goods">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_orderdetail">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/store_store">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Store/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-285">
-          <caret line="37" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_order">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_cart" />
+    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/store_goods" />
+    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_orderdetail" />
+    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/store_store" />
+    <entry file="das://b1074926-98bf-4e34-a560-d0345a25fbc8/schema/freshshop/table/buyer_order" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/402e01b1-fdd3-466f-89f0-3c42c4b8e102/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
     </entry>
     <entry file="das://402e01b1-fdd3-466f-89f0-3c42c4b8e102/schema/freshshop/table/django_migrations">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -897,13 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_order.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://402e01b1-fdd3-466f-89f0-3c42c4b8e102/schema/freshshop/table/buyer_orderdetail">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -942,41 +832,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/urls.py">
+    <entry file="file://$PROJECT_DIR$/Buyer/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        <state relative-caret-position="299">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/base.html">
+    <entry file="file://$PROJECT_DIR$/Buyer/migrations/0002_cart_order_orderdetail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="124" column="31" selection-start-line="124" selection-start-column="31" selection-end-line="124" selection-end-column="31" />
+        <state relative-caret-position="269">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/views.py">
+    <entry file="file://$PROJECT_DIR$/Store/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="319" lean-forward="true" selection-start-line="319" selection-end-line="319" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-651">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_info.html">
+    <entry file="file://$PROJECT_DIR$/Store/migrations/0002_delete_order.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="34" column="12" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+        <state relative-caret-position="209">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Buyer/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="55" column="4" lean-forward="true" selection-start-line="55" selection-start-column="4" selection-end-line="55" selection-end-column="4" />
+        <state relative-caret-position="125">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="76" column="6" lean-forward="true" selection-start-line="1" selection-end-line="76" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-265">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_site.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="20" lean-forward="true" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/base_user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

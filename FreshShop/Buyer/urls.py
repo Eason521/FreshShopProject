@@ -14,7 +14,7 @@ urlpatterns = [
     path("cart_order/", cart_order),
     path("user_center_order/", user_center_order),
     path("user_center_info/", user_center_info),
-    path("causer_center_sitert/", user_center_site),
+    path("user_center_site/", user_center_site),
 
     path("getProvince/", getProvince),
     path("getCity/", getCity),
