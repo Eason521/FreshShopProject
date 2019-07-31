@@ -1,114 +1,51 @@
 {% extends "store/base.html" %}
-{% load cookieTag %}
+
 {% block title %}
     商品列表页
 {% endblock %}
 {% block content %}
-    {% verbatim myblock %}
-        <div id="goods">
-            <form method="post">
-                <a href="/store/add_goods/" type="button" class="btn btn-dark">添加商品</a>
+    <form method="post">
+        <a href="/store/add_goods/" type="button" class="btn btn-dark">添加商品</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品数量</th>
+                <th>出厂日期</th>
+                <th>保质期(月)</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for goods in page %}
+                <tr>
+                    <td><a href="/store/goods/{{ goods.id }}">{{ goods.goods_name }}</a></td>
+                    <td>{{ goods.goods_price }}</td>
+                    <td>{{ goods.goods_number }}</td>
+	                    <td>{{ goods.goods_date }}</td>
+	                    <td>{{ goods.goods_safeDate }}</td>
+	                    <td>
+	                        {% ifequal status "up" %}
+	                        <a class="btn btn-danger" href="/store/goods_status/down/?goods_id={{ goods.id }}">下架</a>
+	                        {% else %}
+	                        <a class="btn btn-danger" href="/store/goods_status/up/?goods_id={{ goods.id }}">上架</a>
+	                        {% endifequal %}
+	                        <a class="btn btn-primary" href="#">销毁</a>
 
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>商品名称</th>
-                        <th>商品价格</th>
-                        <th>商品类型</th>
-                        <th>商品数量</th>
-                        <th>出厂日期</th>
-                        <th>保质期(月)</th>
-                        <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    <tr v-for="goods in goods_list">
-                        <td><a href="/store/goods/{{ goods.id }}">{{ goods.goods_name }}</a></td>
-                        <td>{{ goods.goods_price }}</td>
-                        <td>{{ goods.goods_type_id|goods_type_name }}</td>
-                        <td>{{ goods.goods_number }}</td>
-                        <td>{{ goods.goods_date }}</td>
-                        <td>{{ goods.goods_safeDate }}</td>
-                        <td>
-
-                                <a class="btn btn-danger"
-                                   href="/store/goods_status/down/?goods_id={{ goods.id }}">下架</a>
-
-                                <a class="btn btn-danger"
-                                   href="/store/goods_status/up/?goods_id={{ goods.id }}">上架</a>
-
-                            <a class="btn btn-primary" href="#">销毁</a>
-
-                        </td>
-                    </tr>
-
-                    </tbody>
-
-                </table>
-
-
-                <div class="dataTables_paginate paging_simple_numbers">
-                    <ul class="pagination">
-
-
-                        <li v-for="p in page_range" class="paginate_button page-item active"
-                            id="dataTable_paginate">
-                            <a class="page-link" v-on:click="get_page_data(p)" href="#">{{ p }}</a>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </form>
+	                    </td>
+	                </tr>
+	            {% endfor %}
+            </tbody>
+        </table>
+        <div class="dataTables_paginate paging_simple_numbers">
+            <ul class="pagination">
+                {% for p in page_range %}
+                    <li class="paginate_button page-item active" id="dataTable_paginate">
+                        <a class="page-link" href="/store/goods_list/?page_num={{ p }}">{{ p }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
-    {% endverbatim myblock %}
-{% endblock %}
-{% block script %}
-    <script src="/static/store/js/vue.min.js"></script>
-    <script src="/static/store/js/vue-resource.js"></script>
-    <script>
-        Vue.use(VueResource);
-        var vue = new Vue(
-            {
-                el: "#goods",
-                data: {
-                    goods_list: [],
-                    page_range: [],
-
-                },
-                created: function () {
-                    this.$http.get("/APIgoods/").then(
-                        function (data) {
-                            console.log(data.data);
-                            this.goods_list = data.data.results; //成功返回数据
-                            page_number = Math.ceil(data.data.count / 3);
-                            var page_range = [...new Array(page_number+1).keys()];
-                            this.page_range = page_range.slice(1,);
-                        },
-                        function (error) {    //失败返回错误信息
-                            console.log(error)
-                        }
-                    )
-                },
-                methods: {
-                    get_page_data: function (page) {
-                        this.$http.get("/APIgoods/?page=" + page).then(
-                            function (data) {
-
-                                this.goods_list = data.data.results; //成功返回数据
-                                page_number = Math.ceil(data.data.count / 3);
-                                var page_range = [...new Array(page_number+1).keys()];
-                                this.page_range = page_range.slice(1,);
-                            },
-                            function (error) {
-                                console.log(error)
-
-                            }
-                        )
-                    }
-                }
-            }
-        )
-    </script>
+    </form>
 {% endblock %}

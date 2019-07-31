@@ -217,6 +217,9 @@ def list_goods(request, status):  # 分页展示所有商品并只展示本人�
     page_range = paginator.page_range
     return render(request, "store/goods_list.html", locals())
 
+def goods_list_api(request):
+    return render(request, "store/goods_list_api.html", locals())
+
 
 @loginValid
 def goods(request, goods_id):  # 商品详情

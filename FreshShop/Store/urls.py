@@ -8,6 +8,7 @@ urlpatterns = [
     path("index/", views.index),
     path("register_store/", views.register_store),
     re_path(r"goods_list/(?P<status>\w+)", views.list_goods),  #商品列表
+    path("goods_list_api/", views.goods_list_api),  #商品列表（api渲染）
     path("add_goods/", views.add_goods),  #添加商品
     re_path(r"^goods/(?P<goods_id>\d+)", views.goods),  #详情
     re_path(r"update_goods/(?P<goods_id>\d+)", views.update_goods), #修改商品
