@@ -7,7 +7,6 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.shortcuts import HttpResponseRedirect
 
-
 from Store.models import *
 from Buyer.models import *
 
@@ -252,9 +251,6 @@ def update_goods(request, goods_id):  # 修改商品
     return render(request, "store/update_goods.html", locals())
 
 
-
-
-
 def goods_status(request, state):
     if state == "up":
         s = 1
@@ -270,12 +266,12 @@ def goods_status(request, state):
 
 
 def order_list(request):
-    status =request.GET.get("status")
+    status = request.GET.get("status")
 
     store_id = request.COOKIES.get("has_store")
     store = Store.objects.filter(id=store_id).first()
     store_name = store.store_name
-    order_list = OrderDetail.objects.filter(order_id__order_status=status,goods_store=store_name)
+    order_list = OrderDetail.objects.filter(order_id__order_status=status, goods_store=store_name)
     return render(request, "store/order_list.html", locals())
 
 
@@ -283,3 +279,18 @@ def base(request):
     return render(request, "store/base.html", locals())
 
 
+# api接口视图
+# ViewSets define the view behavior
+from rest_framework import viewsets
+from Store.serializers import *
+
+class UserViewSet(viewsets.ModelViewSet):
+    """返回过滤的类"""
+    queryset = Goods.objects.all()  # 具体返回的对象
+    serializer_class = UserSerializer  # 指定过滤的类
+
+
+class TypeViewSet(viewsets.ModelViewSet):
+    """返回查询内容"""
+    queryset = GoodsType.objects.all()
+    serializer_class = GoodsTypeSerializer
