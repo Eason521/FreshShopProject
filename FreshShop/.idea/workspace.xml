@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5c2cf1f6-c8ad-4969-864f-b2278ad379aa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FreshShop/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshShop/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Store/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Store/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Store/templates/store/goods_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/Store/templates/store/goods_list.html" afterDir="false" />
-    </list>
+    <list default="true" id="5c2cf1f6-c8ad-4969-864f-b2278ad379aa" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +50,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FreshShop/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
+            <state relative-caret-position="722">
               <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
               <folding>
                 <element signature="e#633#665#0" expanded="true" />
@@ -67,7 +62,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Store/templates/store/goods_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
+            <state relative-caret-position="522">
               <caret line="64" column="26" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="26" />
             </state>
           </provider>
@@ -76,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FreshShop/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
+            <state relative-caret-position="2926">
               <caret line="154" column="17" selection-start-line="154" selection-start-column="17" selection-end-line="154" selection-end-column="17" />
             </state>
           </provider>
@@ -85,7 +80,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Store/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
+            <state relative-caret-position="5206">
               <caret line="283" selection-start-line="283" selection-end-line="283" />
               <folding>
                 <element signature="e#15#29#0" expanded="true" />
@@ -97,8 +92,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Store/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            <state relative-caret-position="133">
+              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
               <folding>
                 <element signature="e#45#83#0" expanded="true" />
               </folding>
@@ -193,7 +188,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="280" />
     <option name="y" value="28" />
     <option name="width" value="886" />
@@ -238,7 +233,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -366,6 +361,7 @@
       <workItem from="1564447917350" duration="37275000" />
       <workItem from="1564534110570" duration="8362000" />
       <workItem from="1564551778701" duration="11751000" />
+      <workItem from="1564575046528" duration="14000" />
     </task>
     <task id="LOCAL-00001" summary="建立模板，创建数据库语句，并同步">
       <created>1563775281931</created>
@@ -525,7 +521,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="242078000" />
+    <option name="totallyTimeSpent" value="242092000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -537,10 +533,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49758455" visible="true" weight="0.10363086" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49758455" visible="true" weight="0.10514372" />
       <window_info id="Structure" order="1" sideWeight="0.5024155" side_tool="true" weight="0.27688786" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -679,13 +674,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/buyer/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="390" column="23" lean-forward="true" selection-start-line="390" selection-start-column="23" selection-end-line="390" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/buyer/css/main.css" />
     <entry file="file://D:/ProgramData/Anaconda3/envs/DjangoPath/Lib/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -794,13 +783,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/models.py" />
     <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/user_center_site.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -815,16 +798,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Buyer/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-141">
-          <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Buyer/views.py" />
     <entry file="file://$PROJECT_DIR$/Buyer/templates/buyer/base_user.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -924,7 +898,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FreshShop/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
+        <state relative-caret-position="722">
           <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
           <folding>
             <element signature="e#633#665#0" expanded="true" />
@@ -932,19 +906,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Store/serializers.py">
+    <entry file="file://$PROJECT_DIR$/FreshShop/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding>
-            <element signature="e#45#83#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2926">
+          <caret line="154" column="17" selection-start-line="154" selection-start-column="17" selection-end-line="154" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Store/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="5206">
           <caret line="283" selection-start-line="283" selection-end-line="283" />
           <folding>
             <element signature="e#15#29#0" expanded="true" />
@@ -952,16 +923,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FreshShop/settings.py">
+    <entry file="file://$PROJECT_DIR$/Store/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="154" column="17" selection-start-line="154" selection-start-column="17" selection-end-line="154" selection-end-column="17" />
+        <state relative-caret-position="133">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding>
+            <element signature="e#45#83#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Store/templates/store/goods_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
+        <state relative-caret-position="522">
           <caret line="64" column="26" selection-start-line="64" selection-start-column="14" selection-end-line="64" selection-end-column="26" />
         </state>
       </provider>
