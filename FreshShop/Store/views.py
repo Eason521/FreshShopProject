@@ -1,13 +1,11 @@
 # coding:utf-8
 import hashlib
 import json
-import os
 
 from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.shortcuts import HttpResponseRedirect
 
-from Store.models import *
 from Buyer.models import *
 
 
@@ -185,13 +183,6 @@ def add_goods(request):
         return HttpResponseRedirect("/store/goods_list/up/")
     return render(request, "store/add_goods.html", locals())
 
-
-# @loginValid
-# def goods_list(request):  #展示所有商品
-#     goods_list = Goods.objects.all()
-#     return render(request,"store/goods_list.html",{"goods_list":goods_list})
-
-
 @loginValid
 def list_goods(request, status):  # 分页展示所有商品并只展示本人店铺的
     if status == "up":
@@ -286,12 +277,15 @@ def base(request):
 # ViewSets define the view behavior
 from rest_framework import viewsets
 from Store.serializers import *
+from django_filters.rest_framework import DjangoFilterBackend #导入过滤器
 
-class UserViewSet(viewsets.ModelViewSet):
-    """返回过滤的类"""
+class GoodsViewSet(viewsets.ModelViewSet):
+    """查询所有商品 返回过滤的类"""
     queryset = Goods.objects.all()  # 具体返回的对象
     serializer_class = UserSerializer  # 指定过滤的类
 
+    filter_backends = [DjangoFilterBackend] #指出采用的哪个过滤器
+    filterset_fields = ['goods_name','goods_price'] #过滤查询的字段
 
 class TypeViewSet(viewsets.ModelViewSet):
     """返回查询内容"""

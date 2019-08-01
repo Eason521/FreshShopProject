@@ -155,12 +155,12 @@ REST_FRAMEWORK = {
     'PAGE_SIZE':6,
     'DEFAULT_RENDERER_CLASSES' :(
         'utils.rendererresponse.customrenderer',
+    ),
+    'DEFAULT_FILTER_BACKENDS' :(
+        'django_filters.rest_framework.DjangoFilterBackend',
     )
 }
 
-{"author":"",
- "data":{"goods":"http://127.0.0.1:8000/APIgoods/","goodsType":"http://127.0.0.1:8000/APIgoodsType/"},
- "msg":"请求删除",
- "code":0}
+
 
 # STATIC_ROOT = os.path.join(BASE_DIR,"static")

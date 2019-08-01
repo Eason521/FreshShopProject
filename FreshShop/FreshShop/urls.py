@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.urls import path,re_path,include
 
 from Buyer.views import index
-from Store.views import UserViewSet
+from Store.views import GoodsViewSet
 from Store.views import TypeViewSet
 
-from rest_framework import routers,serializers,viewsets
+from rest_framework import routers
 
 
 
@@ -30,7 +30,7 @@ from rest_framework import routers,serializers,viewsets
 
 
 router = routers.DefaultRouter() #声明一个默认路由注册器
-router.register(r"goods",UserViewSet) #注册写好的接口视图
+router.register(r"goods",GoodsViewSet) #注册写好的接口视图
 router.register(r'goodsType', TypeViewSet) #注册写好的接口视图
 
 
