@@ -82,7 +82,7 @@
                         function (data) {
                             console.log(data.data);
                             this.goods_list = data.data.results; //成功返回数据
-                            page_number = Math.ceil(data.data.count / 3);
+                            page_number = Math.ceil(data.data.count / 6);
                             var page_range = [...new Array(page_number+1).keys()];
                             this.page_range = page_range.slice(1,);
                         },
@@ -97,7 +97,7 @@
                             function (data) {
 
                                 this.goods_list = data.data.results; //成功返回数据
-                                page_number = Math.ceil(data.data.count / 3);
+                                page_number = Math.ceil(data.data.count / 6);
                                 var page_range = [...new Array(page_number+1).keys()];
                                 this.page_range = page_range.slice(1,);
                             },
