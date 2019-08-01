@@ -5,7 +5,7 @@ url = "http://106.ihuyi.com/webservice/sms.php?method=Submit"
 
 account = ""    #用户
 password = ""   #密码
-mobile = "13331153360"  #手机号
+mobile = ""  #手机号
 content = "您的验证码是：201981。请不要把验证码泄露给其他人。"  #短信内容
 
 #定义请求的头部
