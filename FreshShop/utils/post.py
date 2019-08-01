@@ -5,10 +5,10 @@
 import smtplib #登陆邮件服务器，进行邮件发送
 from email.mime.text import MIMEText #负责构建邮件格式
 
-subject = "标题"  #标题
-content = "内容"  #内容
-sender = "@163.com"  #发送者
-recver = """@qq.com"""  #接收者
+subject = "博客"  #标题
+content = "https://blog.csdn.net/qq_40576301"  #内容
+sender = "1946648105@163.com"  #发送者
+recver = """3392279511@qq.com,1403617606@qq.com"""  #接收者
 
 password = ""  #授权码
 
