@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'Store',
     'Buyer',
     'ckeditor',
+    'djcelery',
     'rest_framework',
     'ckeditor_uploader',
 ]
@@ -164,3 +165,25 @@ REST_FRAMEWORK = {
 
 
 # STATIC_ROOT = os.path.join(BASE_DIR,"static")
+
+
+import djcelery# 导入django-celery模块
+djcelery.setup_loader() #模块初始加载
+BROKER_URL = 'redis://127.0.0.1:6379/1' #任务容器地址  redis数据库地址
+CELERY_IMPORTS = ('CeleryTask.tasks') #具体的任务文件
+CELERY_TIMEZONE = 'Asia/Shanghai' #celery时区
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler' #celery处理器
+
+#celery的定时器
+from celery.schedules import crontab
+from celery.schedules import timedelta
+
+CELERYBEAT_SCHEDULE = {
+    #定时任务一：每30 s运行一次
+    u'测试定时器1':{
+        "task":"celeryTask.tasks.taskExample",
+
+        "schedule":timedelta(seconds=30),
+        "args":(),
+    },
+}
