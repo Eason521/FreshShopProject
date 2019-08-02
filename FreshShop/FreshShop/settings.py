@@ -186,4 +186,10 @@ CELERYBEAT_SCHEDULE = {
         "schedule":timedelta(seconds=30),
         "args":(),
     },
+    u'测试定时器2': {
+        "task": "celeryTask.tasks.dingTalk",
+
+        "schedule": timedelta(seconds=3),
+        "args": (),
+    },
 }
