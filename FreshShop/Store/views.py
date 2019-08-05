@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import HttpResponseRedirect
 
 from Buyer.models import *
+from Store.models import *
 
 
 # Create your views here.
@@ -275,14 +276,15 @@ def base(request):
 
 # api接口视图
 # ViewSets define the view behavior
+
 from rest_framework import viewsets
-from Store.serializers import *
+from Store.serializers import GoodsSerializer,GoodsTypeSerializer
 from django_filters.rest_framework import DjangoFilterBackend #导入过滤器
 
 class GoodsViewSet(viewsets.ModelViewSet):
     """查询所有商品 返回过滤的类"""
     queryset = Goods.objects.all()  # 具体返回的对象
-    serializer_class = UserSerializer  # 指定过滤的类
+    serializer_class = GoodsSerializer  # 指定过滤的类
 
     filter_backends = [DjangoFilterBackend] #指出采用的哪个过滤器
     filterset_fields = ['goods_name','goods_price'] #过滤查询的字段
@@ -291,3 +293,48 @@ class TypeViewSet(viewsets.ModelViewSet):
     """返回查询内容"""
     queryset = GoodsType.objects.all()
     serializer_class = GoodsTypeSerializer
+
+from django.core.mail import send_mail
+def sendMail(request):
+    send_mail("邮件主题", "邮件内容", "from_email", ["to_email"], fail_silently=False)
+
+
+
+#
+# from CeleryTask.tasks import add
+from django.http import JsonResponse, HttpResponse
+from django.views.decorators.cache import cache_page
+#
+# def get_add(request):
+#     add.delay(2, 3)
+#     return JsonResponse({"statue": 200})
+#
+@cache_page(10*60)
+def small_white_views(request):
+    print("我是小白视图")
+    # raise TypeError("我就不想好好的")
+    return HttpResponse("我是小白视图")
+#
+# def small_white_views(request):
+#     # print("我是小白视图")
+#
+#     rep = HttpResponse("I am rep")
+#     rep.render = lambda: HttpResponse("hello world")
+#     return rep
+#
+# # def small_white_views(request):
+# #     # print("我是小白视图")
+# #     def hello():
+# #         return HttpResponse("hello world")
+# #     rep = HttpResponse("I am rep")
+# #     rep.render = hello
+# #     return rep
+#
+# # def small_white_views(request):
+# #     print("我是小白视图")
+# #     def render():
+# #         print("hello world")
+# #         return HttpResponse("98k")
+# #     rep = HttpResponse("od")
+# #     rep.render = render
+# #     return rep

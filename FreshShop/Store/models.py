@@ -3,20 +3,6 @@ from django.db import models
 
 # Create your models here.
 
-## 定义上传文件重命名
-from django.urls import reverse
-from uuid import uuid4
-import os
-
-def path_and_rename(instance, filename):
-    upload_to='mypictures'
-    ext = filename.split('.')[-1]
-    filename = '{}.{}'.format(uuid4().hex, ext)
-
-    # return the whole path to the file
-    return os.path.join(upload_to, filename)
-
-
 
 class Seller(models.Model):
     username = models.CharField(max_length=32,verbose_name="用户名")

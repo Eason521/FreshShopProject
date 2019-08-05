@@ -398,4 +398,4 @@ def pay_result(request):
 
 
 def base(request):
-    return render(request, "buyer/base.html")
+    return render(request, "buyer/base.html",locals())

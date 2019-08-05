@@ -12,10 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -27,7 +25,6 @@ SECRET_KEY = 'd=o4x9a)vg7jrn44)u7613*z-agt2&+m1y17s@+h^(wa@i5oeo'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -54,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'FreshShop.middleware.MiddlewareTest1',
 ]
 
 ROOT_URLCONF = 'FreshShop.urls'
@@ -74,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'FreshShop.wsgi.application'
+# WSGI_APPLICATION = 'FreshShop.wsgi.application'
 
 
 # Database
@@ -91,10 +89,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "freshshop",
-        'USER':"root",
-        'PASSWORD':"1234",
-        'PORT':"3306",
-        'HOST':"localhost",
+        'USER': "root",
+        'PASSWORD': "1234",
+        'PORT': "3306",
+        'HOST': "localhost",
 
     }
 }
@@ -117,7 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -131,60 +128,60 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR,"static"),
+    os.path.join(BASE_DIR, "static"),
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,"static")
-
+MEDIA_ROOT = os.path.join(BASE_DIR, "static")
 
 CKEDITOR_UPLOAD_PATH = "static/upload"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 
-
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES':[
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
-    'DEFAULT_PAGINATION_CLASS':'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE':6,
-    'DEFAULT_RENDERER_CLASSES' :(
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+
+    'PAGE_SIZE': 6,
+
+    'DEFAULT_RENDERER_CLASSES': (
         'utils.rendererresponse.customrenderer',
     ),
-    'DEFAULT_FILTER_BACKENDS' :(
+
+    'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     )
 }
 
-
-
 # STATIC_ROOT = os.path.join(BASE_DIR,"static")
 
 
-import djcelery# 导入django-celery模块
-djcelery.setup_loader() #模块初始加载
-BROKER_URL = 'redis://127.0.0.1:6379/1' #任务容器地址  redis数据库地址
-CELERY_IMPORTS = ('CeleryTask.tasks') #具体的任务文件
-CELERY_TIMEZONE = 'Asia/Shanghai' #celery时区
-CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler' #celery处理器
+import djcelery  # 导入django-celery模块
 
-#celery的定时器
+djcelery.setup_loader()  # 模块初始加载
+BROKER_URL = 'redis://127.0.0.1:6379/1'  # 任务容器地址  redis数据库地址
+CELERY_IMPORTS = ('CeleryTask.tasks')  # 具体的任务文件
+CELERY_TIMEZONE = 'Asia/Shanghai'  # celery时区
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'  # celery处理器
+
+# celery的定时器
 from celery.schedules import crontab
 from celery.schedules import timedelta
 
 CELERYBEAT_SCHEDULE = {
-    #定时任务一：每30 s运行一次
-    u'测试定时器1':{
-        "task":"celeryTask.tasks.taskExample",
+    # 定时任务一：每30 s运行一次
+    u'测试定时器1': {
+        "task": "celeryTask.tasks.taskExample",
 
-        "schedule":timedelta(seconds=30),
-        "args":(),
+        "schedule": timedelta(seconds=30),
+        "args": (),
     },
     u'测试定时器2': {
         "task": "celeryTask.tasks.dingTalk",
@@ -192,4 +189,19 @@ CELERYBEAT_SCHEDULE = {
         "schedule": timedelta(seconds=3),
         "args": (),
     },
+}
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache', #默认本地缓存
+#     }
+# }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',  # 使用memchche缓存
+        'LOCATION': [
+            '127.0.0.1:11211',
+        ]
+    }
 }

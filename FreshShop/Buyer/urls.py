@@ -24,9 +24,10 @@ urlpatterns = [
 
 
 ]
+from django.views.decorators.cache import cache_page
 
 urlpatterns += [
-    path("base/",base),
+    path("base/",cache_page(15*60)(base)),
     path("pay_order/", pay_order),
     path("pay_result/", pay_result),
 ]

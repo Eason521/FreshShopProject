@@ -1,9 +1,9 @@
 # Serializers define the API representation.
 from rest_framework import serializers
-from Store.models import *
+from Store.models import Goods,GoodsType
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class GoodsSerializer(serializers.HyperlinkedModelSerializer):
     """声明数据"""
     class Meta: #元类
         model = Goods  #进行接口序列化的模型
